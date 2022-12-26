@@ -1,0 +1,11 @@
+{
+    "name": "Livewebchat",
+    "version": "1.0.0",
+    "description": "Live web chat",
+    "dependencies": {
+        "socket.io": "latest",
+        "express": "latest",
+        "jade": "latest"
+    },
+    "author": "vcidev"
+}

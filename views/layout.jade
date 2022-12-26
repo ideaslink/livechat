@@ -1,0 +1,46 @@
+doctype
+html
+    head
+        title='Live web chat'
+        script(src='/socket.io/socket.io.js')
+        script(src="/vardef.js")
+        script(src='/messagehub.js')
+         
+
+        //- Bootswatch support
+        link( rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+        script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous")
+
+    body(style="padding: 0px;")
+        //- header
+        .container
+            nav.navbar.navbar-fluid.navbar-expand-sm.bg-dark.navbar-dark
+                .container
+                    .navbar-header 
+                        a.navbar-brand(href="/") 
+                            img(src="/resources/pin.png" style="width: 30px; height: 30px;") 
+                        button.navbar-toggler.collapsed.ml-auto(type="button", data-toggle="collapse", data-target="#collapsiblebar")
+                            span.navbar-toggler-icon
+
+                    div#collapsiblebar.collapse.navbar-collapse.navbar-nav
+                        ul.navbar-nav.ml-auto
+                            li.nav-item
+                                a.nav-link(href="/") Home &nbsp 
+                            li.nav-item 
+                                a.nav-link(href="/About") About &nbsp 
+
+            .jumbotron.p-2
+                h1 Live Chat 
+                //- p let's get together
+        
+        block content
+
+        //- footer
+        .container
+                div#divfooter.bg-dark.text-light.mt-2(style="padding: 10px; color: #ccc;")
+                    |  Live chat - Copyright 2022
+
+    script(src='/chat.js')
+    link(rel='stylesheet' href='/css/site.css') 

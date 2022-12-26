@@ -1,0 +1,105 @@
+extends layout
+
+block content                    
+
+    .container
+
+        .row
+            .col-md-6
+
+                .container 
+
+                    .row 
+                        .col-md-12
+                            h3 Chat details
+
+                    .row.mt-3
+                        .col-md-4
+                            b
+                                |   Targets 
+                        .col-md-8
+                            .p-1
+                                b
+                                    | Select the target you like to chat
+                                .mt-2.br
+                                input(type="radio", name="chat_target", value="global", checked)
+                                |  Global
+                                br
+                                input(type="radio", name="chat_target", value="group") 
+                                |  Group
+                                .p-1
+                                    .ml-3   available groups
+                                
+                                input(type="radio", name="chat_target", value="user") 
+                                |  User
+                                .p-1
+                                    .ml-3   available users
+
+            .col-md-6
+
+                .container 
+
+                    .row 
+                        .col-md-12
+                            #content.mb-2(style="height: 300px; overflow-y: scroll; padding: 10px; border: solid 1px #ccc; word-wrap: break-word;")
+
+                    .row 
+                        .col-md-2
+                            | group
+                        .col-md-10
+                            input#group.text.text-default(type="text", placeholder="Enter your group")
+
+                    .row.mt-1
+                        .col-md-2
+                            | user
+                        .col-md-10
+                            input#user.text.text-default(type="text", placeholder="Enter your name")
+                    .row.mt-1
+                        .col-md-2
+                        .col-md-10
+                            #istyping(style="width:100%; height: 24px; color: #ccc;")
+                    .row.mt-1
+                        .col-md-2
+                            | message 
+                        .col-md-10
+                            input#field(type="text", style="width:100%;")
+                    .row.mt-1
+                        .col-md-2
+                        //-    | post
+                        .col-md-10
+                            input#send.btn.btn-primary.mr-1(type="button", value="send", style="width: 100px;")
+                            input#sendgroup.btn.btn-primary(type="button", value="send group")
+
+
+    //- .container 
+
+    //-     .row 
+    //-         .col-md-6
+    //-             #content.mb-2(style="width: 100%; height: 300px; overflow-y: scroll; padding: 10px; border: solid 1px #ccc; word-wrap: break-word;")
+
+    //-     .row 
+    //-         .col-md-1
+    //-             | group
+    //-         .col-md-5
+    //-             input#group.text.text-default(type="text", placeholder="Enter your group")
+
+    //-     .row.mt-1
+    //-         .col-md-1
+    //-             | user
+    //-         .col-md-5
+    //-             input#user.text.text-default(type="text", placeholder="Enter your name")
+    //-     .row.mt-1
+    //-         .col-md-1
+    //-         .col-md-5
+    //-             #istyping(style="width:100%; height: 24px; color: #ccc;")
+    //-     .row.mt-1
+    //-         .col-md-1
+    //-             | message 
+    //-         .col-md-5
+    //-             input#field(type="text", style="width:100%;")
+    //-     .row.mt-1
+    //-         .col-md-1
+    //-         //-    | post
+    //-         .col-md-5
+    //-             input#send.btn.btn-primary.mr-1(type="button", value="send", style="width: 100px;")
+    //-             input#sendgroup.btn.btn-primary(type="button", value="send group")

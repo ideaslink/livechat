@@ -1,0 +1,9 @@
+/* site.css */
+
+a:active {
+    color: white;
+}
+
+.boldtext {
+    font-weight: bold;
+}

@@ -16,16 +16,22 @@ __Dependencies__
   
 __Installing__
 
+- install node.js
+- socket.io client for VS code
 
 # __Authors__
 
+@Ideaslink
 
 # __Version history__
 
+version 1.0.0.1
 
 # __License__
 
 
+
 # __Acknowledgments__
 
+Socket.io
 

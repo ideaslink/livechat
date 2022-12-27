@@ -2,17 +2,18 @@
 
 Live chat application for online communication
 
-__Description__
+**Description**
 
-The application provides live online communication through web. Currently, it supports message chatting 
+The application provides live online communication through web. Currently, it supports message chatting styles below,
+
+- between users
+- message to group
 
 # __Getting Started__
 
 __Dependencies__
-
-  IDE: visual studio code (recommended)
   
-  node.js, socket.io, express, jade
+node.js, socket.io, express, jade
   
 __Installing__
 

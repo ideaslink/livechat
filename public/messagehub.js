@@ -5,13 +5,14 @@
 const msghub = (() => {
 
 function messagedisplay(verb, msg, user, group) {
-        lefticon = '';
-        righticon = '';
-        align=''; 
-        bgcolor=''; 
-        color='';
-        msgline='';
-        icon='';
+        lefticon = righticon = align = bgcolor= color= msgline= icon='';
+        // lefticon = '';
+        // righticon = '';
+        // align = '';
+        // bgcolor = '';
+        // color = '';
+        // msgline = '';
+        // icon = '';
         width = '30px';
         height = '30px';
 
@@ -22,8 +23,9 @@ function messagedisplay(verb, msg, user, group) {
             width = "40px";
         }
 
-        align =(verb == undefined? 'center' : (verb == 'post'? 'right' : 'left'));
-        bgcolor =(verb == undefined? 'white' : (verb == 'post'? '#00b300' /* green */ : '#09bbd6' /* blue */));
+        align = (verb == undefined? 'center' : (verb == 'post'? 'right' : 'left'));
+        // bgcolor = (verb == undefined? 'white' : (verb == 'post'? '#00b300' : '#09bbd6'));
+        bgcolor = (verb == undefined? 'white' : (verb == 'post'? '#00b300' /* green */ : (group != undefined? '#f5a614' : '#09bbd6' /* blue */)));
         color = (verb == undefined? 'black' : 'white');
 
         if (verb != undefined) {
@@ -33,7 +35,8 @@ function messagedisplay(verb, msg, user, group) {
             else lefticon = s;
         }
 
-        msgline = '<div style="text-align: {{align}}; margin-bottom: 10px; height: {{height}}}}">{{lefticon}}<span style="background: {{background}}; color: {{color}}; border-radius: 10px; padding: 3px 20px; height: {{height}}">' + '<b>' + (user? '[' + user + ' said' + (group? ' to group (' + group + ')' : '') + ']' : '') + '</b> ' + msg + '</span> {{righticon}} </div>';
+        msgline = '<div style="text-align: {{align}}; margin-bottom: 10px; height: {{height}}}}">{{lefticon}}<span style="background: {{background}}; color: {{color}}; border-radius: 10px; padding: 3px 20px; height: {{height}}; font-size: 12px;">' + (user? '[' + user + ' said' + (group? ' to group (' + group + ')' : '') + ']' : '') + '<b> ' + msg + '</b> </span>  {{righticon}} </div>';
+        // msgline = '<div style="text-align: {{align}}; margin-bottom: 10px; height: {{height}}}}">{{lefticon}}<span style="background: {{background}}; color: {{color}}; border-radius: 10px; padding: 3px 20px; height: {{height}}">' + '<b>' + (user? '[' + user + ' said' + (group? ' to group (' + group + ')' : '') + ']' : '') + '</b> ' + msg + '</span> {{righticon}} </div>';
         msgline = msgline.replace('{{align}}', align).replace('{{background}}', bgcolor).replace('{{color}}', color).replace('{{lefticon}}', lefticon).replace('{{righticon}}', righticon).replace('{{width}}', width).replace('{{height}}', height).replace('{{icon}}', icon);
         return msgline;
     };
@@ -113,7 +116,9 @@ function messagedisplay(verb, msg, user, group) {
 // }
 
     // outside access
-    return {
+    
+    return 
+    {
         messagedisplay: messagedisplay
     }
 

@@ -1,8 +1,8 @@
 /* 	
-		app.js 		
-		
-		about					Live chat by socket.io / node
 
+		john@ideaslink - app.js 		
+
+		about					Live chat by socket.io / node
 		dependency				node.js, socket.io, express, jade
 		
 */
@@ -12,6 +12,7 @@ var jade = require('jade');
 var express = require('express');
 var app = express();
 var http = require('http');
+var groups = [];
 
 var port = "3800"; // portnumber;
 
@@ -23,7 +24,8 @@ app.route('/')
 	.get((req, res) => {
 		res.render('home')
 	});
-app.route('/about').get((req, res) => {
+app.route('/about')
+	.get((req, res) => {
 	res.render('about');
 });
 
@@ -37,8 +39,9 @@ io.sockets.on('connection', (socket) => {
 
 	socket.on('send', (data) => {
 		io.emit('message', data);	// send to all
-		// send to the socket mentioned
-		// socket.emit('message', data);	
+		
+		//// comment the line below to sent to the socket mentioned
+		// socket.emit('message', data);
 	});
 
 	socket.on('typing', (data) => {
@@ -47,6 +50,12 @@ io.sockets.on('connection', (socket) => {
 
 	socket.on('send-group', (data) => {
 		var gid = data.group;
+		if ( !groups.find(s => s == gid)) {
+			groups.push(gid);
+			socket.join(gid);
+		}
+		data["groups"]= groups;
+
 		if (gid) {
 			socket.join(gid);
 			io.sockets.to(gid).emit('message', data);
